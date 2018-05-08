@@ -1,4 +1,5 @@
 package interfaces;
+import java.util.ArrayList;
 import java.util.Arrays;
 
 public class MixedCapsString extends SpecialString {
@@ -11,18 +12,15 @@ public class MixedCapsString extends SpecialString {
 	@Override
 	public String funkifyText(String s) {
 		// TODO Auto-generated method stub
-		char[] textList = s.toCharArray();
-		String lower = "";
-		for (int i = 0; i < textList.length; i++) {
-			lower += ""+textList[i];
-		}
-		lower.toLowerCase();
-		char[] textList1 = lower.toCharArray();
+		s = s.toUpperCase();
 		String upperAndLower = "";
-		for (int i = 0; i < textList1.length; i += 2) {
-			String upper = ""+textList1[i];
-			upper = upper.toUpperCase();
-			upperAndLower += upper;
+		for (int i = 0; i < s.length(); i++) {
+			if (i%2==0) {
+				upperAndLower += (""+s.charAt(i)).toLowerCase();
+			}
+			else {
+				upperAndLower += ""+s.charAt(i);
+			}
 		}
 		return upperAndLower;
 	}
